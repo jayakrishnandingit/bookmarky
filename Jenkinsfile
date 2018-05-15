@@ -6,9 +6,10 @@ pipeline {
         stage('build') {
             steps {
                 bat 'if not exist "env" py -m venv env'
-                bat 'env\\Scripts\\activate'
+                bat 'cd env'
+                bat 'Scripts\\activate'
+                bat 'cd ..'
                 bat 'pip freeze'
-                bat 'python -m pip install --upgrade pip'
             }
         }
     }
