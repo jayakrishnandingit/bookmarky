@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent { docker 'python:3.6.3' }
+    agent any
     stages {
         stage('build') {
             steps {
