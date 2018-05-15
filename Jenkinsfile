@@ -5,10 +5,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                if [ ! -d "env" ] ; then
-                    py -m venv env
-                fi
+                if not exist "env" py -m venv env
                 env\Scripts\activate
+                pip freeze
                 pip install -r ./requirements.txt
                 pip freeze
             }
