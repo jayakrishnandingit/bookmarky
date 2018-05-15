@@ -5,8 +5,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                bat 'echo "Hello World!"'
-                bat 'py --version'
+                if [ ! -d "env" ] ; then
+                    py -m venv env
+                fi
+                env\Scripts\activate
+                pip install -r ./requirements.txt
+                pip freeze
             }
         }
     }
