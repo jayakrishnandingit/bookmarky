@@ -7,7 +7,8 @@ pipeline {
             steps {
                 bat 'if not exist "env" py -m venv env'
                 bat 'cd env'
-                bat 'Scripts\\activate'
+                bat 'ls'
+                bat 'pwd'
                 bat 'cd ..'
                 bat 'pip freeze'
             }
