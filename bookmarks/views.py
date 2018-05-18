@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 
@@ -16,5 +14,3 @@ class UserBookmarksAPI(generics.ListCreateAPIView):
     def get_queryset(self):
         liu = self.request.user
         return liu.bookmarks.all()
-
-
