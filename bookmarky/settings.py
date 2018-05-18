@@ -1,3 +1,4 @@
+# flake8: noqa
 """
 Django settings for bookmarky project.
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'f*(nbvhc62g+i89_trxh00ke&2cbs#jkfzj4qbhnj=^_s*vgs('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '172.18.0.1']
 
 SITE_ID = 1
 
@@ -46,6 +47,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
+    'taggit',
+    'bookmarks'
 ]
 
 MIDDLEWARE = [
@@ -84,8 +87,11 @@ WSGI_APPLICATION = 'bookmarky.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }
 
@@ -128,6 +134,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+
 REST_USE_JWT = True
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -139,3 +149,4 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ),
 }
+TAGGIT_CASE_INSENSITIVE = True

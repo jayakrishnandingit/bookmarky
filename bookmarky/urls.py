@@ -18,9 +18,13 @@ from django.urls import include, path
 
 from rest_framework.schemas import get_schema_view
 
+from bookmarks import views as bookmarks_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', get_schema_view()),
     path('api/auth/', include('rest_auth.urls')),
     path('api/auth/registration/', include('rest_auth.registration.urls')),
+
+    path('api/bookmarks/', bookmarks_views.UserBookmarksAPI.as_view())
 ]

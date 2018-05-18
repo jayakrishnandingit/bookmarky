@@ -1,16 +1,16 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent any
+    agent {
+        dockerfile true
+    }
     stages {
         stage('build') {
             steps {
-                bat 'if not exist "env" py -m venv env'
-                bat 'cd .\\env'
-                bat 'dir'
-                bat 'cd'
-                bat 'cd ..'
-                bat 'pip freeze'
+                sh 'flake8 .'
+                sh 'sudo docker-compose run web python3 manage.py makemigrations'
+                sh 'sudo docker-compose run web python3 manage.py migrate'
+                sh 'sudo docker-compose run web python3 manage.py test'
             }
         }
     }
