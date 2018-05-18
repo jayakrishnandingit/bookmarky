@@ -14,5 +14,7 @@ class UserBookmarksAPI(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        user = self.request.user
-        return user.bookmarks.all()
+        liu = self.request.user
+        return liu.bookmarks.all()
+
+
