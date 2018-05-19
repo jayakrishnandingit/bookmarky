@@ -8,9 +8,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'flake8 .'
-                sh 'docker-compose run web python3 manage.py makemigrations'
-                sh 'docker-compose run web python3 manage.py migrate'
-                sh 'docker-compose run web python3 manage.py test'
+                sh 'echo $PATH'
             }
         }
     }
