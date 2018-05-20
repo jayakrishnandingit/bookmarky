@@ -26,7 +26,7 @@ SECRET_KEY = 'f*(nbvhc62g+i89_trxh00ke&2cbs#jkfzj4qbhnj=^_s*vgs('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '172.18.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 SITE_ID = 1
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth.registration',
     'taggit',
+    'taggit_serializer',
     'bookmarks'
 ]
 
@@ -137,6 +138,7 @@ STATIC_URL = '/static/'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 REST_USE_JWT = True
 REST_FRAMEWORK = {

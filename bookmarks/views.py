@@ -14,3 +14,6 @@ class UserBookmarksAPI(generics.ListCreateAPIView):
     def get_queryset(self):
         liu = self.request.user
         return liu.bookmarks.all()
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)

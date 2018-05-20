@@ -9,6 +9,7 @@ django-rest-auth==0.9.3
 djangorestframework==3.8.2
 djangorestframework-jwt==1.11.0
 django-taggit==0.22.2
+django-taggit-serializer
 flake8
 idna==2.6
 itypes==1.1.0

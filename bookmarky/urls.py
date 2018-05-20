@@ -22,9 +22,9 @@ from bookmarks import views as bookmarks_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', get_schema_view()),
-    path('api/auth/', include('rest_auth.urls')),
-    path('api/auth/registration/', include('rest_auth.registration.urls')),
+    path('api/v1.0/', get_schema_view()),
+    path('api/v1.0/auth/', include('rest_auth.urls')),
+    path('api/v1.0/auth/registration/', include('rest_auth.registration.urls')),
 
-    path('api/my/bookmarks/', bookmarks_views.UserBookmarksAPI.as_view())
+    path('api/v1.0/my/bookmarks/', bookmarks_views.UserBookmarksAPI.as_view(), name='mybookmarks')
 ]
