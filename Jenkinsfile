@@ -8,7 +8,7 @@ pipeline {
         stage('build') {
             steps {
                 sh "flake8 ."
-                sh "pwd"
+                sh "ls -l /usr/local/bin/"
             }
         }
     }
