@@ -4,6 +4,9 @@ pipeline {
     agent {
         dockerfile true
     }
+    environment {
+        PATH+EXTRA=/usr/local/bin/docker-compose
+    }
     stages {
         stage('build') {
             steps {
