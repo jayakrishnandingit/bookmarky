@@ -11,7 +11,7 @@ pipeline {
         stage('build') {
             steps {
                 sh "flake8 ."
-                sh "bash docker-compose run web python3 manage.py test -k"
+                sh "docker-compose run web python3 manage.py test -k"
             }
         }
     }
