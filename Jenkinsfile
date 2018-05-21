@@ -5,7 +5,7 @@ pipeline {
         dockerfile true
     }
     environment {
-        PATH+EXTRA=/usr/local/bin/docker-compose
+        PATH=$PATH:/usr/local/bin/docker-compose;
     }
     stages {
         stage('build') {
