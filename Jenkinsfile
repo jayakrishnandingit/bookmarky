@@ -11,7 +11,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'flake8 .'
-                sh 'docker-compose run web python3 manage.py test'
+                sh 'echo env.PATH'
             }
         }
     }
