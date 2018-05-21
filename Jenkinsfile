@@ -7,8 +7,7 @@ pipeline {
     stages {
         stage('install_docker_compose') {
             steps {
-                sh "uname -s"
-                sh "uname -m"
+                sh "pip install docker-compose"
             }
         }
         stage('build') {
