@@ -1,12 +1,9 @@
 pipeline {
-    agent {
-        dockerfile true
-    }
+    agent any
     stages {
         stage('build') {
             steps {
-                sh "flake8 ."
-                sh "ls -l /usr/local/bin/"
+                sh "docker-compose run web flake8 ."
                 sh "docker-compose run web python3 manage.py test -k"
             }
         }
