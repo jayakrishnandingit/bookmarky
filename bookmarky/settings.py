@@ -52,6 +52,13 @@ INSTALLED_APPS = [
     'bookmarks'
 ]
 
+AUTHENTICATION_BACKENDS = [
+    # for django admin.
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
