@@ -26,5 +26,6 @@ urlpatterns = [
     path('api/v1.0/auth/', include('rest_auth.urls')),
     path('api/v1.0/auth/registration/', include('rest_auth.registration.urls')),
 
-    path('api/v1.0/my/bookmarks/', bookmarks_views.UserBookmarksAPI.as_view(), name='mybookmarks')
+    path('api/v1.0/me/bookmarks/', bookmarks_views.UserBookmarksAPI.as_view(), name='mybookmarks'),
+    path('api/v1.0/bookmarks/<int:id>/', bookmarks_views.BookmarksDetailsAPI.as_view(), name='bookmark'),
 ]

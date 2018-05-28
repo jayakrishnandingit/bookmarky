@@ -12,7 +12,7 @@ from bookmarks.models import Bookmark
 User = get_user_model()
 
 
-class BookmarkAPITestCase(APITestCase):
+class UserBookmarksAPITestCase(APITestCase):
     def setUp(self):
         self.user = User.objects.create_user(
             'jaytest', 'jaytest@example.com', 'password123.'
@@ -153,3 +153,7 @@ class BookmarkAPITestCase(APITestCase):
         # make sure the bookmark is saved under logged in user.
         bookmark = Bookmark.objects.get(pk=response.data['id'])
         self.assertEqual(bookmark.user.email, self.user.email)
+
+
+class BookmarksDetailsAPITest(APITestCase):
+    pass
