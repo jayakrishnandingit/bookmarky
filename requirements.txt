@@ -13,7 +13,7 @@ django-taggit-serializer
 flake8
 idna==2.6
 itypes==1.1.0
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.0
 oauthlib==2.0.7
 psycopg2
